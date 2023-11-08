@@ -1,0 +1,38 @@
+* system wide, do these once
+** system-level dependencies
+#+BEGIN_SRC bash
+brew install postgresql tmux nvm coreutils postgrest watch jq fswatch
+#+END_SRC
+** pgjwt
+git clone https://github.com/michelp/pgjwt && cd pgjwt && sudo make install
+** nvm:
+#+BEGIN_SRC bash
+mkdir ~/.nvm
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"' >> ~/.zshrc
+#+END_SRC
+* project repository && node dependencies
+#+BEGIN_SRC bash
+    export APP=KleinanZaigen ;
+    git clone git@git.webgma.co.il:ScraperStarterTemplate $APP &&
+	cd $APP && \
+	nvm install && \
+	nvm use && \
+	./npm-init.sh
+#+END_SRC
+* env
+execute the following under _bash_!
+#+BEGIN_SRC bash
+  ./makeenv.sh
+#+END_SRC
+
+* database initialization
+#+BEGIN_SRC bash
+  source .env
+  echo 'DBNAME:'$DBNAME
+  ./db_init.sh
+#+END_SRC
+* launch
+#+BEGIN_SRC bash
+./tmux.sh
+#+END_SRC
