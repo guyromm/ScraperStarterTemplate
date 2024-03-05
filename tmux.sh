@@ -57,7 +57,7 @@ echo '* creating session' && \
 	  ) || echo '* postgrest proxy disabled')
 }
 function attach() {
-    ts attach-ses
+    ts -u attach-ses
     }
 
 
