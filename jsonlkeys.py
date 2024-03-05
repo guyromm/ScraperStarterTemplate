@@ -71,3 +71,14 @@ for k,v in reversed(summary['key_types'].items()):
         excnt+=1
     print(k.ljust(70),str(v).rjust(10),str(len(s)).rjust(8),ex)
 
+print('** jsonb-queries')
+for k in reversed(summary['key_types'].keys()):
+    path = k.split(':')[0]
+    path_parts = path.split('.')
+    jsonb_path = '->'.join([f"'{part}'" if part != 'ARR' else 'jsonb_array_elements' for part in path_parts])
+    if 'ARR' in path_parts:
+        jsonb_path = f"jsonb_array_elements({jsonb_path})"
+    else:
+        jsonb_path = f"v->{jsonb_path}"
+    print(f"{jsonb_path} as {path_parts[-1]},")
+
