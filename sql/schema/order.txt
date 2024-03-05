@@ -9,6 +9,7 @@ check_role_exists.FUNCTION.sql
 encrypt_pass.FUNCTION.sql
 user_role.text,.text.FUNCTION.sql
 user_validated.text,.text.FUNCTION.sql
+decodeuricomponent.text.FUNCTION.sql
 invite.cv.FUNCTION.sql
 jwt_test.FUNCTION.sql
 login.text,.text.FUNCTION.sql
