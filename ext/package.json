@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webextension-toolbox dev chrome"
+    "start": "node --openssl-legacy-provider node_modules/.bin/webextension-toolbox dev chrome"
   },
   "author": "",
   "license": "ISC",
