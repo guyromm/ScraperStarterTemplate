@@ -80,5 +80,9 @@ for k in reversed(summary['key_types'].keys()):
         jsonb_path = f"jsonb_array_elements({jsonb_path})"
     else:
         jsonb_path = f"v->{jsonb_path}"
+    quantity = summary['key_types'][k]
+    distinctiveness = len(samples[k])
+    example = str(list(samples[k].items())[0])
+    print(f"-- {k} - Quantity: {quantity}, Distinctiveness: {distinctiveness}, Example: {example}")
     print(f"{jsonb_path} as {path_parts[-1]},")
 
